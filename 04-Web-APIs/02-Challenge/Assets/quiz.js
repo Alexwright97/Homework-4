@@ -1,3 +1,12 @@
+var introEl= document.querySelector("#intro")
+var qaViewEl= document.querySelector("#qa-view")
+var timerEl= document.querySelector("#timer")
+var titleEl= document.querySelector("#title")
+var answer1El= document.querySelector("#answer1")
+var answer2El= document.querySelector("#answer2")
+var answer3El= document.querySelector("#answer3")
+var answer4El= document.querySelector("#answer4")
+var startQuizBtn= document.querySelector("#start-quiz")
 /*
 step 1. display start page- title and papragraph
 and start button
@@ -21,3 +30,31 @@ step 4. show a dashboard of all the high scores
 
 
 */
+
+var timeRemaining=75 //for each 5 questions
+var clockid
+
+var question=[{
+    title:"new question 1",
+    answers:["answer1,answer2,answer3,answer4"],
+    solution: "answer2"
+},{
+    title:"new question 2",
+    answers:["answer1,answer2,answer3,answer4"],
+    solution: "answer2"
+
+}]
+function countDown(){
+    timerEl.textContent=timeRemaining
+    timeRemaining--
+}
+function startGame(){
+    qaViewEl.classList.remove("hide")
+    introEl.classList.add("hide")
+    clockid=setInterval(countDown,1000)
+}
+function displayQuestions(){
+    titleEl.textContent=question[index].title
+    
+}
+startQuizBtn.addEventListener("click",startGame)
