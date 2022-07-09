@@ -55,6 +55,18 @@ function startGame(){
 }
 function displayQuestions(){
     titleEl.textContent=question[index].title
-    
+    answer1El.textContent=question[index].answers[0]
+    answer2El.textContent=question[index].answers[1]
+    answer3El.textContent=question[index].answers[2]
+    answer4El.textContent=question[index].answers[3]
 }
+
+function nextQuestion(){
+    index++
+    displayQuestions()
+}
+answer1El.addEventListener("click",nextQuestion)
+answer2El.addEventListener("click",nextQuestion)
+answer3El.addEventListener("click",nextQuestion)
+answer4El.addEventListener("click",nextQuestion)
 startQuizBtn.addEventListener("click",startGame)
